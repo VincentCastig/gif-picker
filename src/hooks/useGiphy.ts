@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { GiphyGif, GiphyResponse } from '../types/giphy'
+import { useState } from 'react'
+import type { GiphyGif, GiphyResponse } from '../types/giphy'
 
 const API_KEY = import.meta.env.VITE_GIPHY_API_KEY
 const BASE_URL = 'https://api.giphy.com/v1/gifs'
