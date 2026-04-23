@@ -58,11 +58,11 @@ function App() {
       <main>
         <GifGrid gifs={gifs} loading={loading} onCopy={handleCopy} />
 
-        {!loading && gifs.length > 0 && gifs.length < totalCount && (
+        {/* {!loading && gifs.length > 0 && gifs.length < totalCount && (
           <button className="load-more-btn" onClick={handleLoadMore}>
             Load More
           </button>
-        )}
+        )} */}
       </main>
 
       {toast && (
