@@ -5,9 +5,8 @@ import GifGrid from './components/GifGrid'
 import Toast from './components/Toast'
 
 function App() {
-  const { gifs, loading, error, rateLimited, totalCount, fetchGifs, fetchTrending } = useGiphy()
+  const { gifs, loading, error, rateLimited, fetchGifs, fetchTrending } = useGiphy()
   const [query, setQuery] = useState(() => new URLSearchParams(window.location.search).get('q') || '')
-  const [offset, setOffset] = useState(0)
   const [toast, setToast] = useState<string | null>(null)
   const hasFetched = useRef(false)
 
@@ -24,15 +23,8 @@ function App() {
 
   const handleSearch = useCallback((q: string) => {
     setQuery(q)
-    setOffset(0)
     fetchGifs(q, 0)
   }, [fetchGifs])
-
-  const handleLoadMore = () => {
-    const newOffset = offset + 12
-    setOffset(newOffset)
-    fetchGifs(query, newOffset)
-  }
 
   const handleCopy = () => {
     setToast('GIF URL copied to clipboard!')
